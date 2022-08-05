@@ -41,13 +41,13 @@ export const SIDEBAR = {
 
     { text: "NextJS", header: true },
     { text: "NextJS Docs", link: "https://nextjs.org/docs", external: true },
-    { text: "Why?", link: "en/nextjs/nextjs-why" },
-    { text: "Usage", link: "en/page-4" },
+    { text: "Why NextJS?", link: "en/nextjs/nextjs-why" },
+    { text: "Usage", link: "en/nextjs/nextjs-usage" },
 
     { text: "tRPC", header: true },
     { text: "tRPC Docs", link: "https://trpc.io/docs", external: true },
-    { text: "Why?", link: "en/page-4" },
-    { text: "Usage", link: "en/page-4" },
+    { text: "Why tRPC?", link: "en/trpc/trpc-why" },
+    { text: "Usage", link: "en/trpc/trpc-usage" },
 
     { text: "TailwindCSS", header: true },
     {
@@ -55,17 +55,17 @@ export const SIDEBAR = {
       link: "https://tailwindcss.com/docs/utility-first",
       external: true,
     },
-    { text: "Why?", link: "en/page-4" },
-    { text: "Usage", link: "en/page-4" },
+    { text: "Why TailwindCSS?", link: "en/tailwind/tailwind-why" },
+    { text: "Usage", link: "en/tailwind/tailwind-usage" },
 
-    { text: "Typescript", header: true },
+    { text: "TypeScript", header: true },
     {
-      text: "Typescript Docs",
+      text: "TypeScript Docs",
       link: "https://www.typescriptlang.org/docs/",
       external: true,
     },
-    { text: "Why?", link: "en/page-4" },
-    { text: "Usage", link: "en/page-4" },
+    { text: "Why Typescript?", link: "en/typescript/typescript-why" },
+    { text: "Usage", link: "en/typescript/typescript-usage" },
 
     { text: "Prisma", header: true },
     {
@@ -73,8 +73,8 @@ export const SIDEBAR = {
       link: "https://www.prisma.io/docs/",
       external: true,
     },
-    { text: "Why?", link: "en/page-4" },
-    { text: "Usage", link: "en/page-4" },
+    { text: "Why Prisma?", link: "en/prisma/prisma-why" },
+    { text: "Usage", link: "en/prisma/prisma-usage" },
 
     { text: "NextAuth.js", header: true },
     {
@@ -82,7 +82,7 @@ export const SIDEBAR = {
       link: "https://next-auth.js.org/getting-started/introduction",
       external: true,
     },
-    { text: "Why?", link: "en/page-4" },
-    { text: "Usage", link: "en/page-4" },
+    { text: "Why NextAuth.js?", link: "en/nextauth/nextauth-why" },
+    { text: "Usage", link: "en/nextauth/nextauth-usage" },
   ],
 };
