@@ -3,6 +3,7 @@ export interface Props {
 	path: string;
 }
 const path =  Astro.props.path as Props
+console.log("path is ", path)
 const url = `https://api.github.com/repos/kroucher/create-t3-app-docs/commits?path=${path}`;
 const commitsURL = `https://github.com/kroucher/create-t3-app-docs/commits/master/${path}`;
 
