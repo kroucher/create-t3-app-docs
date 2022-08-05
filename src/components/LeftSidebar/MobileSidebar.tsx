@@ -3,7 +3,13 @@ import { getLanguageFromURL } from "../../languages";
 import { useStore } from "@nanostores/react";
 import { sidebarState } from "../../store/Sidebar";
 
-const MobileSidebar = ({ currentPage }: { currentPage: string }) => {
+const MobileSidebar = ({
+  currentPage,
+  pathName,
+}: {
+  currentPage: string;
+  pathName: string;
+}) => {
   const currentPageMatch = currentPage.slice(1);
   const langCode = getLanguageFromURL(currentPage);
   const $isSideBarOpen = useStore(sidebarState);
@@ -34,7 +40,7 @@ const MobileSidebar = ({ currentPage }: { currentPage: string }) => {
             {sidebarSections.map((section, i) => (
               <li key={i}>
                 <div>
-                  <h2 className="p-1 mb-2 font-bold underline underline-offset-2 text-black dark:text-slate-50 text-xl">
+                  <h2 className="p-1 mb-2 font-bold  text-black dark:text-slate-50 text-xl ">
                     {section.text}
                   </h2>
                   <ul>
@@ -44,17 +50,23 @@ const MobileSidebar = ({ currentPage }: { currentPage: string }) => {
                         className="text-black dark:text-slate-50 text-base"
                       >
                         <a
-                          href={`/${child.link}`}
+                          href={
+                            child.external
+                              ? `${child.link}`
+                              : `${pathName}${child.link}`
+                          }
+                          rel="noopener noreferrer"
+                          target={child.external ? "_blank" : "_self"}
                           aria-current={`${
                             currentPageMatch === child.link ? "page" : "false"
                           }`}
                           className={`${
                             currentPageMatch === child.link
-                              ? "font-semibold"
-                              : "font-normal"
+                              ? "font-extrabold italic underline-offset-2"
+                              : "font-semibold no-underline"
                           }`}
                         >
-                          {child.text}
+                          {child.external ? `${child.text}↗` : `${child.text}`}
                         </a>
                       </li>
                     ))}
