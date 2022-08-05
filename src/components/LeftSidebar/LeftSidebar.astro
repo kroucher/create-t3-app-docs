@@ -37,13 +37,15 @@ const sidebarSections = SIDEBAR[langCode].reduce((col, item, i) => {
 						{section.children.map((child) => {
 							
 							return (
-							<li class="pl-2 pb-1 text-black dark:text-slate-50 text-base">
+							<li class="pl-2 pb-1 hover:underline hover:underline-offset-2 text-black dark:text-slate-50 text-base">
 								<a
 									href={child.external ? `${child.link}` : `${Astro.site.pathname}${child.link}`}
+									rel="noopener noreferrer"
+									target={child.external ? "_blank" : "_self"}
 									aria-current={`${currentPageMatch === child.link ? "page" : "false"}`}
-									class={`${currentPageMatch === child.link ? "font-semibold" : "font-normal"}`}
+									class={`${currentPageMatch === child.link ? "font-extrabold italic" : "font-semibold"}`}
 								>
-									{child.text}
+									{child.external ? `${child.text}↗` : `${child.text}`}
 								</a>
 							</li>
 						)})}
