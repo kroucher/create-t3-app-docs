@@ -1,0 +1,25 @@
+---
+import MoreMenu from "../RightSidebar/MoreMenu.astro";
+import TableOfContents from "../RightSidebar/TableOfContents";
+
+
+
+const { content, githubEditUrl } = Astro.props;
+const title = content.title;
+const headings = content.astro.headings;
+---
+
+<article class="px-4 sm:p-0 w-full h-full flex flex-col markdown">
+	<section class="mb-16">
+		<h1 class="text-4xl" id="overview">{title}</h1>
+		<nav class="block sm:hidden">
+			<TableOfContents  {headings} />
+		</nav>
+		<slot />
+	</section>
+	<nav class="block sm:hidden">
+		<MoreMenu editHref={githubEditUrl} />
+	</nav>
+</article>
+
+

@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .markdown h2 {
+    @apply mt-8 mb-4 text-2xl font-extrabold;
+  }
+  .markdown li {
+    @apply list-disc;
+  }
+  .markdown p {
+    @apply mb-4;
+  }
+  .markdown a > p {
+    @apply mb-0 text-sm;
+  }
+  .markdown a {
+    @apply underline decoration-dotted underline-offset-2 hover:text-purple-200 decoration-purple-200;
+  }
+  .markdown pre {
+    @apply font-mono my-3 p-2 rounded-md;
+  }
+  .markdown h3 {
+    @apply mb-0 font-semibold;
+  }
+  .markdown code {
+    @apply font-mono bg-[#0d1117] p-1 rounded-md;
+  }
+  .markdown p > img {
+    @apply text-sm mt-8;
+  }
+}
