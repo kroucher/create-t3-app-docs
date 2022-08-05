@@ -1,5 +1,5 @@
 ---
-title: Intro
+title: Introduction
 description: Introduction to the T3 Stack
 layout: ../../layouts/MainLayout.astro
 ---

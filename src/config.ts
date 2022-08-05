@@ -19,7 +19,7 @@ export const KNOWN_LANGUAGES = {
 };
 
 // Uncomment this to add an "Edit this page" button to every page of documentation.
-export const GITHUB_EDIT_URL = `https://github.com/kroucher/create-t3-app-docs/`;
+export const GITHUB_EDIT_URL = `https://github.com/kroucher/create-t3-app-docs/edit/master/`;
 
 // Uncomment this to add an "Join our Community" button to every page of documentation.
 export const COMMUNITY_INVITE_URL = `https://discord.gg/geZHcscA`;
@@ -34,8 +34,8 @@ export const ALGOLIA = {
 
 export const SIDEBAR = {
   en: [
-    { text: "Introduction", header: true },
-    { text: "Intro", link: "en/intro" },
+    { text: "Create-T3-App", header: true },
+    { text: "Introduction", link: "en/introduction" },
     { text: "Getting Started", link: "en/getting-started" },
     { text: "Installation", link: "en/installation" },
 

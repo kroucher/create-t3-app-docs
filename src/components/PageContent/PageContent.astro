@@ -9,17 +9,19 @@ const title = content.title;
 const headings = content.astro.headings;
 ---
 
-<article class="px-4 sm:p-0 w-full h-full flex flex-col markdown">
-	<section class="mb-16">
-		<h1 class="text-4xl" id="overview">{title}</h1>
+<div class="px-4 sm:p-0 w-full h-full flex flex-col">
+	<section class="mb-2">
+		<h1 class="text-4xl font-semibold" id="overview">{title}</h1>
 		<nav class="block sm:hidden">
 			<TableOfContents  {headings} />
 		</nav>
-		<slot />
 	</section>
+	<article class="markdown px-6">
+		<slot />
+	</article>
 	<nav class="block sm:hidden">
 		<MoreMenu editHref={githubEditUrl} />
 	</nav>
-</article>
+</div>
 
 

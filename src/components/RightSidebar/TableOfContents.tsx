@@ -40,7 +40,7 @@ const TableOfContents = ({ headings }: { headings: MarkdownHeading[] }) => {
             return (
               <li
                 key={i}
-                className={`pl-4 depth-${heading.depth} ${
+                className={`pl-4 list-none depth-${heading.depth} ${
                   activeId === heading.slug ? "" : ""
                 }`.trim()}
               >

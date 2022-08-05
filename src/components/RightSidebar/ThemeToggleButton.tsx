@@ -15,7 +15,12 @@ const ThemeToggle = () => {
   }, [theme]);
   return (
     <>
-      <button onClick={handleClick}>{theme === "light" ? "🌙" : "🌞"}</button>
+      <button
+        className="rounded-xl p-2 border border-slate-800 dark:border-slate-50"
+        onClick={handleClick}
+      >
+        {theme === "light" ? "🌙" : "🌞"}
+      </button>
     </>
   );
 };
