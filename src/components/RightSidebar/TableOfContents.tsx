@@ -22,8 +22,8 @@ const TableOfContents = ({ headings }: { headings: MarkdownHeading[] }) => {
   }, []);
 
   return (
-    <div className="w-full -translate-x-5">
-      <h2 className="text-lg mb-4">On this page</h2>
+    <div className="w-full">
+      <h2 className="text-lg my-4">On this page</h2>
       <ul className="border-l-2 border-slate-800 dark:border-slate-50 my-1">
         <li
           className={`pl-4 depth-2 ${
