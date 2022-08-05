@@ -31,15 +31,18 @@ const MobileSidebar = ({ currentPage }: { currentPage: string }) => {
           aria-labelledby="grid-left"
         >
           <ul className="pl-6">
-            {sidebarSections.map((section) => (
-              <li>
+            {sidebarSections.map((section, i) => (
+              <li key={i}>
                 <div>
                   <h2 className="p-1 mb-2 font-bold underline underline-offset-2 text-black dark:text-slate-50 text-xl">
                     {section.text}
                   </h2>
                   <ul>
-                    {section.children.map((child) => (
-                      <li className="text-black dark:text-slate-50 text-base">
+                    {section.children.map((child, i) => (
+                      <li
+                        key={i}
+                        className="text-black dark:text-slate-50 text-base"
+                      >
                         <a
                           href={`/${child.link}`}
                           aria-current={`${
