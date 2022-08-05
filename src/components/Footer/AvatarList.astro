@@ -7,7 +7,7 @@ console.log("path is ", path)
 const url = `https://api.github.com/repos/kroucher/create-t3-app-docs/commits?path=${path}`;
 const commitsURL = `https://github.com/kroucher/create-t3-app-docs/commits/master/${path}`;
 
-async function getCommits(url) {
+async function getCommits(url: string) {
 	try {
 		const token = import.meta.env.PUBLIC_GITHUB_TOKEN;
 		
@@ -17,13 +17,12 @@ async function getCommits(url) {
 			);
 		}
 
-		const auth = `Basic ${Buffer.from(token, "binary").toString("base64")}`;
-
+		//const auth = `Basic ${Buffer.from(token, "binary").toString("base64")}`;
 
 		const res = await fetch(url, {
 			method: "GET",
 			headers: {
-				Authorization: auth,
+				Authorization: `Bearer ${token}`,
 				"User-Agent": "create-t3-app-docs/1.0",
 			},
 		});
