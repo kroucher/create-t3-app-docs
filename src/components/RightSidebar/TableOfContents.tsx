@@ -35,8 +35,6 @@ const TableOfContents = ({ headings }: { headings: MarkdownHeading[] }) => {
         {headings
           .filter(({ depth }) => depth > 1 && depth < 4)
           .map((heading, i) => {
-            console.log(activeId);
-            console.log(heading);
             return (
               <li
                 key={i}

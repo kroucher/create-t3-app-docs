@@ -12,7 +12,7 @@ import "../styles/globals.css";
 
 const { content = {} } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-console.log(canonicalURL);
+
 const currentPage = Astro.url.pathname;
 const currentFile = `src/pages${currentPage.replace(/\/$/, "")}.md`;
 const githubEditUrl = CONFIG.GITHUB_EDIT_URL && CONFIG.GITHUB_EDIT_URL + currentFile;
@@ -25,8 +25,7 @@ const githubEditUrl = CONFIG.GITHUB_EDIT_URL && CONFIG.GITHUB_EDIT_URL + current
 		<HeadSEO {content} canonicalURL={canonicalURL} />
 		<title>{content.title ? `${content.title} 🚀 ${CONFIG.SITE.title}` : CONFIG.SITE.title}</title>
 	</head>
-	
-	<body class="w-full flex flex-col bg-slate-50 dark:bg-dark-background text-black dark:text-slate-50 ">
+	<body class="w-full h-full flex flex-col bg-slate-50 dark:bg-dark-background text-black dark:text-slate-50 ">
 		<Header currentPage={currentPage} />
 		<MobileSidebar client:load currentPage={currentPage} />
 		<main class="h-full flex lg:grid-cols-3 lg:grid max-w-full overflow-x-hidden pt-8 sm:pt-20 scrollbar-thin dark:scrollbar-thumb-slate-500 scrollbar-thumb-slate-800 scrollbar-track-gray-100">
@@ -36,7 +35,7 @@ const githubEditUrl = CONFIG.GITHUB_EDIT_URL && CONFIG.GITHUB_EDIT_URL + current
 			<div class="block sm:hidden">
 		</div>
 			<div class="flex flex-col h-full columns-2 p-2 w-full" >
-				<PageContent {content} {githubEditUrl}>
+				<PageContent {content} {githubEditUrl} {currentFile}>
 					<slot />
 				</PageContent>
 			</div>
@@ -44,8 +43,5 @@ const githubEditUrl = CONFIG.GITHUB_EDIT_URL && CONFIG.GITHUB_EDIT_URL + current
 				<RightSidebar {content} {githubEditUrl} />
 			</aside>
 		</main>
-		<div class="w-full mx-auto pt-20">
-			<Footer path={currentFile} />
-		</div>
 	</body>
 </html>

@@ -1,10 +1,9 @@
 ---
+import Footer from "../Footer/Footer.astro";
 import MoreMenu from "../RightSidebar/MoreMenu.astro";
 import TableOfContents from "../RightSidebar/TableOfContents";
 
-
-
-const { content, githubEditUrl } = Astro.props;
+const { content, githubEditUrl, currentFile } = Astro.props;
 const title = content.title;
 const headings = content.astro.headings;
 ---
@@ -22,6 +21,9 @@ const headings = content.astro.headings;
 	<nav class="block sm:hidden">
 		<MoreMenu editHref={githubEditUrl} />
 	</nav>
+	<div class="w-full mx-auto pt-48">
+		<Footer client:load path={currentFile} />
+	</div>
 </div>
 
 

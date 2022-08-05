@@ -1,11 +1,10 @@
 ---
-// fetch all commits for just this page's path
 export interface Props {
 	path: string;
 }
 const path =  Astro.props.path as Props
 const url = `https://api.github.com/repos/kroucher/create-t3-app-docs/commits?path=${path}`;
-const commitsURL = `https://github.com/kroucher/create-t3-app-docs/commits/master${path}`;
+const commitsURL = `https://github.com/kroucher/create-t3-app-docs/commits/master/${path}`;
 
 async function getCommits(url) {
 	try {
@@ -18,7 +17,7 @@ async function getCommits(url) {
 		}
 
 		const auth = `Basic ${Buffer.from(token, "binary").toString("base64")}`;
-		console.log(auth)
+
 
 		const res = await fetch(url, {
 			method: "GET",
@@ -59,7 +58,6 @@ function removeDups(arr) {
 
 	return Array.from(map.values());
 }
-console.log(url)
 const data = await getCommits(url);
 const unique = removeDups(data);
 const recentContributors = unique.slice(0, 3); // only show avatars for the 3 most recent contributors
@@ -67,7 +65,7 @@ const additionalContributors = unique.length - recentContributors.length; // lis
 ---
 
 <!-- Thanks to @5t3ph for https://smolcss.dev/#smol-avatar-list! -->
-<div class="flex flex-col max-w-6xl mx-auto border rounded-xl p-4">
+<div class="flex flex-col max-w-6xl mx-auto border rounded-xl p-4 border-slate-900 dark:border-slate-50">
 	<h2 class="text-lg pb-3">We ❤️ Contributors</h2>
 	<ul class="flex flex-wrap " style={`--avatar-count: ${recentContributors.length}`}>
 		{recentContributors.map((item) => (

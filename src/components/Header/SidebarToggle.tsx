@@ -3,7 +3,6 @@ import { sidebarShown, sidebarState } from "../../store/Sidebar";
 
 const SidebarToggle = () => {
   const $isSideBarOpen = useStore(sidebarState);
-  console.log("$isSideBarOpen", $isSideBarOpen);
   return (
     <>
       <button
@@ -13,7 +12,6 @@ const SidebarToggle = () => {
         className="dark:text-slate-50"
         onClick={() => {
           sidebarState.set(!$isSideBarOpen);
-          console.log(sidebarState.get());
         }}
       >
         <svg
