@@ -40,27 +40,49 @@ export const SIDEBAR = {
     { text: "Installation", link: "en/installation" },
 
     { text: "NextJS", header: true },
+    { text: "🌎 NextJS Docs", link: "https://nextjs.org/docs", external: true },
     { text: "Why?", link: "en/nextjs/nextjs-why" },
     { text: "Usage", link: "en/page-4" },
 
     { text: "tRPC", header: true },
+    { text: "🌎 tRPC Docs", link: "https://trpc.io/docs", external: true },
     { text: "Why?", link: "en/page-4" },
     { text: "Usage", link: "en/page-4" },
 
     { text: "TailwindCSS", header: true },
+    {
+      text: "🌎 Tailwind Docs",
+      link: "https://tailwindcss.com/docs/utility-first",
+      external: true,
+    },
     { text: "Why?", link: "en/page-4" },
-    { text: "Usage" },
+    { text: "Usage", link: "en/page-4" },
 
     { text: "Typescript", header: true },
+    {
+      text: "🌎 Typescript Docs",
+      link: "https://www.typescriptlang.org/docs/",
+      external: true,
+    },
     { text: "Why?", link: "en/page-4" },
-    { text: "Usage" },
+    { text: "Usage", link: "en/page-4" },
 
     { text: "Prisma", header: true },
+    {
+      text: "🌎 Prisma Docs",
+      link: "https://www.prisma.io/docs/",
+      external: true,
+    },
     { text: "Why?", link: "en/page-4" },
-    { text: "Usage" },
+    { text: "Usage", link: "en/page-4" },
 
     { text: "NextAuth.js", header: true },
+    {
+      text: "🌎 NextAuth.js Docs",
+      link: "https://next-auth.js.org/getting-started/introduction",
+      external: true,
+    },
     { text: "Why?", link: "en/page-4" },
-    { text: "Usage" },
+    { text: "Usage", link: "en/page-4" },
   ],
 };

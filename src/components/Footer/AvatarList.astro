@@ -3,7 +3,6 @@ export interface Props {
 	path: string;
 }
 const path =  Astro.props.path as Props
-console.log("path is ", path)
 const url = `https://api.github.com/repos/kroucher/create-t3-app-docs/commits?path=${path}`;
 const commitsURL = `https://github.com/kroucher/create-t3-app-docs/commits/master/${path}`;
 
@@ -16,8 +15,6 @@ async function getCommits(url: string) {
 				'Cannot find "PUBLIC_GITHUB_TOKEN" used for escaping rate-limiting.'
 			);
 		}
-
-		//const auth = `Basic ${Buffer.from(token, "binary").toString("base64")}`;
 
 		const res = await fetch(url, {
 			method: "GET",

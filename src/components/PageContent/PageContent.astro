@@ -8,19 +8,21 @@ const title = content.title;
 const headings = content.astro.headings;
 ---
 
-<div class="px-4 sm:p-0 w-full h-full flex flex-col">
-	<section class="mb-2">
-		<h1 class="text-4xl font-semibold" id="overview">{title}</h1>
-		<nav class="block sm:hidden">
+<div class="px-4 w-full h-full flex  flex-col items-start justify-between col-span-4 col-start-2">
+	<div class="w-full">
+	<h1 class="text-4xl font-semibold" id="overview">{title}</h1>
+	<section class="mb-2 block sm:hidden">
+		<nav class="">
 			<TableOfContents  {headings} />
 		</nav>
 	</section>
-	<article class="markdown px-6">
+	<article class="markdown px-6 max-w-none">
 		<slot />
 	</article>
-	<nav class="block sm:hidden">
+	<nav class="block lg:hidden">
 		<MoreMenu editHref={githubEditUrl} />
 	</nav>
+</div>
 	<div class="w-full mx-auto pt-48">
 		<Footer client:load path={currentFile} />
 	</div>

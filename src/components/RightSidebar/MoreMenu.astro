@@ -5,11 +5,13 @@ const { editHref } = Astro.props;
 const showMoreSection = CONFIG.COMMUNITY_INVITE_URL || editHref;
 ---
 
-{showMoreSection && <h2 class="text-lg mt-8 mb-4">More</h2>}
-<ul class="space-y-2">
+<div class="flex flex-col w-full items-center justify-center">
+	{showMoreSection && <h2 class="text-lg">More</h2>}
+	<div class="flex items-center justify-center w-full">
+		<ul class="space-y-2 dark:bg-slate-500 bg-slate-200 w-fit p-2 rounded-lg  divide-y divide-slate-50 lg:mr-6">
 	{editHref && (
-		<li class="">
-			<a class="flex space-x-3" href={editHref} target="_blank">
+		<li class="py-2">
+			<a class="flex items-center justify-center space-x-3" href={editHref} target="_blank">
 				<svg
 					aria-hidden="true"
 					focusable="false"
@@ -19,7 +21,7 @@ const showMoreSection = CONFIG.COMMUNITY_INVITE_URL || editHref;
 					role="img"
 					xmlns="http://www.w3.org/2000/svg"
 					viewBox="0 0 512 512"
-					height="1em"
+					height="100%"
 					width="1em"
 				>
 					<path
@@ -32,8 +34,8 @@ const showMoreSection = CONFIG.COMMUNITY_INVITE_URL || editHref;
 		</li>
 	)}
 	{CONFIG.COMMUNITY_INVITE_URL && (
-		<li class={`heading-link depth-2`}>
-			<a class="flex space-x-3" href={CONFIG.COMMUNITY_INVITE_URL} target="_blank">
+		<li class="py-2">
+			<a class="flex items-center justify-center space-x-3" href={CONFIG.COMMUNITY_INVITE_URL} target="_blank">
 				<svg
 					aria-hidden="true"
 					focusable="false"
@@ -43,7 +45,7 @@ const showMoreSection = CONFIG.COMMUNITY_INVITE_URL || editHref;
 					role="img"
 					xmlns="http://www.w3.org/2000/svg"
 					viewBox="0 0 512 512"
-					height="1em"
+					height="100%"
 					width="1em"
 				>
 					<path
@@ -56,7 +58,9 @@ const showMoreSection = CONFIG.COMMUNITY_INVITE_URL || editHref;
 		</li>
 	)}
 </ul>
+</div>
 <div style="margin: 2rem 0; text-align: center;">
 	<ThemeToggleButton client:visible />
+</div>
 </div>
 
