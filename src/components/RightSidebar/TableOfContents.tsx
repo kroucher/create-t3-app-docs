@@ -22,7 +22,7 @@ const TableOfContents = ({ headings }: { headings: MarkdownHeading[] }) => {
   }, []);
 
   return (
-    <div className="w-full">
+    <div className="w-full pl-2 sm:pl-0">
       <h2 className="text-lg my-4 font-semibold">On this page</h2>
       <ul className="border-l-2 border-slate-800 dark:border-brand-primary my-1">
         <li
