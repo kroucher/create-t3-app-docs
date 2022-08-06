@@ -26,7 +26,6 @@ yarn create t3-app
 pnpm dlx create-t3-app@latest
 ```
 
-<CodeBlock>Testing</CodeBlock>
 
 ## Experimental
 
