@@ -86,21 +86,21 @@ console.log(thisCategory, prevCategory)
     
     <div class={prevPageLink ? `justify-between flex items-center mx-3 py-16 sm:py-32` : `justify-end flex items-center mx-3` }>
     {prevPageLink && (
-        <a href={`/${prevPage?.link}`} class="dark:text-brand-primary text-slate-800 flex flex-col border border-slate-800 dark:border-brand-primary px-4 py-1 rounded-lg w-fit hover:bg-brand-primary hover:text-slate-800 hover:dark:text-slate-800 sm:min-w-[150px]">
+        <a href={`/${prevPage?.link}`} class="dark:text-brand-primary text-slate-800 flex flex-col border border-slate-800 dark:border-brand-primary px-2 sm:px-4 py-1 rounded-lg w-fit hover:bg-brand-primary hover:text-slate-800 hover:dark:text-slate-800 sm:min-w-[150px]">
           {thisPage !== 1 && thisCategory !== 0 && thisCategory !== 1 ? (
             <div class="flex items-center justify-end">
-              <span class="text-sm font-medium">{thisCategoryObject.text}</span>
+              <span class="text-xs sm:text-sm font-medium">{thisCategoryObject.text}</span>
             </div>
           ) : prevCategoryObject ? (
             <div class="flex items-center justify-end">
-              <span class="text-sm font-medium">{prevCategoryObject.text}</span>
+              <span class="text-xs sm:text-sm font-medium">{prevCategoryObject.text}</span>
             </div>
           ) : (
             <div class="flex items-center justify-end">
-              <span class="text-sm font-medium">{thisCategoryObject.text}</span>
+              <span class="text-xs sm:text-sm font-medium">{thisCategoryObject.text}</span>
             </div>
           )}
-          <div class="w-full flex items-center justify-end">
+          <div class="w-full flex items-center justify-end pt-1.5">
           <svg
             class="w-6 h-6"
             fill="currentColor"
@@ -112,23 +112,23 @@ console.log(thisCategory, prevCategory)
               clip-rule="evenodd"
             />
           </svg>
-          <span>{prevPage.text}</span>
+          <span class="text-sm sm:text-base ">{prevPage.text}</span>
         </div>
         </a>
         )}
         {nextPageLink && (
-        <a href={`/${nextPage?.link}`} class="dark:text-brand-primary text-slate-800 flex flex-col border border-slate-800 dark:border-brand-primary px-4 py-1 rounded-lg w-fit hover:bg-brand-primary hover:text-slate-800 hover:dark:text-slate-800 sm:min-w-[150px]">
+        <a href={`/${nextPage?.link}`} class="dark:text-brand-primary text-slate-800 flex flex-col border border-slate-800 dark:border-brand-primary px-2 sm:px-4 py-1 rounded-lg w-fit hover:bg-brand-primary hover:text-slate-800 hover:dark:text-slate-800 sm:min-w-[150px]">
           {thisCategoryObject.children.length - 1 <= thisPage ? (
-            <div class="flex items-center justify-start">
-            <span class="text-sm font-medium">{nextCategoryObject.text}</span>
+            <div class="flex items-center justify-start ">
+            <span class="text-xs sm:text-sm font-medium">{nextCategoryObject.text}</span>
           </div>
           ) : (
             <div class="flex items-center justify-start">
-              <span class="text-sm font-medium">{thisCategoryObject.text}</span>
+              <span class="text-xs sm:text-sm font-medium">{thisCategoryObject.text}</span>
             </div>
           )}
-          <div class="flex w-full items-center justify-start">
-          <span>{nextPage.text}</span>
+          <div class="flex w-full items-center justify-start pt-1.5">
+          <span class="text-sm sm:text-base">{nextPage.text}</span>
           <svg
             class="w-6 h-6"
             fill="currentColor"
