@@ -2,10 +2,72 @@
 import Footer from "../Footer/Footer.astro";
 import MoreMenu from "../RightSidebar/MoreMenu.astro";
 import TableOfContents from "../RightSidebar/TableOfContents";
-import PasteIcon from "../../components/PageContent/PasteIcon";
-const { content, githubEditUrl, currentFile } = Astro.props;
+import { getLanguageFromURL } from "../../languages";
+import { SIDEBAR } from "../../config";
+const { content, githubEditUrl, currentFile, currentPage } = Astro.props;
 const title = content.title;
 const headings = content.astro.headings;
+const currentPageMatch = currentPage.slice(1);
+const langCode = getLanguageFromURL(currentPage);
+const sidebarSections = SIDEBAR[langCode].reduce((col, item, i) => {
+  // If the first item is not a section header, create a new container section.
+  if (i === 0) {
+    if (!item.header) {
+      const pesudoSection = { text: "" };
+      col.push({ ...pesudoSection, children: [] });
+    }
+  }
+  if (item.header) {
+    col.push({ ...item, children: [] });
+  } else {
+    col[col.length - 1]?.children.push(item);
+  }
+  return col;
+}, []);
+
+const thisCategory = sidebarSections.findIndex(
+  (section) => section?.children.some((child) => child?.link === currentPageMatch)
+);
+const thisCategoryObject = sidebarSections[thisCategory];
+const thisPage = sidebarSections[thisCategory]?.children?.findIndex(
+  (child) => child?.link === currentPageMatch
+);
+let prevPage = sidebarSections[thisCategory]?.children[thisPage - 1];
+let nextPage = sidebarSections[thisCategory]?.children[thisPage + 1];
+const prevCategory = thisCategory - 1;
+const prevCategoryObject = sidebarSections[prevCategory];
+const nextCategory = thisCategory + 1;
+const nextCategoryObject = sidebarSections[nextCategory];
+
+
+if (prevPage === undefined) {
+  const prevCategoryPage = sidebarSections[prevCategory]?.children[
+    sidebarSections[prevCategory]?.children.length - 1
+  ];
+  prevPage = {
+    ...prevCategoryPage,
+    link: prevCategoryPage?.link?.replace(/^\//, ""),
+  };
+}
+if (nextPage === undefined) {
+  const nextCategoryPage = sidebarSections[nextCategory]?.children[0];
+  nextPage = {
+    ...nextCategoryPage,
+    link: nextCategoryPage?.link?.replace(/^\//, ""),
+  };
+}
+let prevPageLink = prevPage?.link?.replace(/^\//, "");
+let nextPageLink = nextPage?.link?.replace(/^\//, "");
+// skip external docs links
+if (nextPageLink && nextPageLink.startsWith("https://")) {
+  nextPage = sidebarSections[nextCategory].children[1];
+  nextPageLink = nextPage?.link.split("/").pop()
+}
+if (prevPageLink && prevPageLink.startsWith("https://")) {
+  prevPage = sidebarSections[prevCategory].children.pop();
+  prevPageLink = prevPage?.link.split("/").pop()
+}
+console.log(thisCategory, prevCategory)
 ---
 
 <div
@@ -18,9 +80,71 @@ const headings = content.astro.headings;
         <TableOfContents {headings} />
       </nav>
     </section>
-    <article class="markdown px-6 max-w-none">
+    <article class="markdown px-6 max-w-none ">
       <slot />
     </article>
+    
+    <div class={prevPageLink ? `justify-between flex items-center mx-3 py-16 sm:py-32` : `justify-end flex items-center mx-3` }>
+    {prevPageLink && (
+        <a href={`/${prevPage?.link}`} class="dark:text-brand-primary text-slate-800 flex flex-col border border-slate-800 dark:border-brand-primary px-4 py-1 rounded-lg w-fit hover:bg-brand-primary hover:text-slate-800 hover:dark:text-slate-800 sm:min-w-[150px]">
+          {thisPage !== 1 && thisCategory !== 0 && thisCategory !== 1 ? (
+            <div class="flex items-center justify-end">
+              <span class="text-sm font-medium">{thisCategoryObject.text}</span>
+            </div>
+          ) : prevCategoryObject ? (
+            <div class="flex items-center justify-end">
+              <span class="text-sm font-medium">{prevCategoryObject.text}</span>
+            </div>
+          ) : (
+            <div class="flex items-center justify-end">
+              <span class="text-sm font-medium">{thisCategoryObject.text}</span>
+            </div>
+          )}
+          <div class="w-full flex items-center justify-end">
+          <svg
+            class="w-6 h-6"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          <span>{prevPage.text}</span>
+        </div>
+        </a>
+        )}
+        {nextPageLink && (
+        <a href={`/${nextPage?.link}`} class="dark:text-brand-primary text-slate-800 flex flex-col border border-slate-800 dark:border-brand-primary px-4 py-1 rounded-lg w-fit hover:bg-brand-primary hover:text-slate-800 hover:dark:text-slate-800 sm:min-w-[150px]">
+          {thisCategoryObject.children.length - 1 <= thisPage ? (
+            <div class="flex items-center justify-start">
+            <span class="text-sm font-medium">{nextCategoryObject.text}</span>
+          </div>
+          ) : (
+            <div class="flex items-center justify-start">
+              <span class="text-sm font-medium">{thisCategoryObject.text}</span>
+            </div>
+          )}
+          <div class="flex w-full items-center justify-start">
+          <span>{nextPage.text}</span>
+          <svg
+            class="w-6 h-6"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </div>
+        </a>)}
+      </div>
+    
+ 
     <nav class="block lg:hidden">
       <MoreMenu editHref={githubEditUrl} />
     </nav>

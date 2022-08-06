@@ -33,7 +33,7 @@ const MobileSidebar = ({
     <>
       {$isSideBarOpen ? (
         <nav
-          className="dark:bg-dark-background bg-slate-50 text-black dark:text-slate-50 absolute top-20 left-0 w-screen h-full shadow-2xl overflow-y-scroll prose dark:prose-invert prose-ul:list-none scrollbar-thin dark:scrollbar-thumb-slate-500 scrollbar-thumb-slate-800 scrollbar-track-gray-100"
+          className="dark:bg-dark-background bg-slate-50 text-black dark:text-slate-50 -z-0 absolute top-20 left-0 w-screen h-full shadow-2xl overflow-y-scroll prose dark:prose-invert prose-ul:list-none scrollbar-thin dark:scrollbar-thumb-slate-500 scrollbar-thumb-slate-800 scrollbar-track-gray-100"
           aria-labelledby="grid-left"
         >
           <ul className="pl-6">
