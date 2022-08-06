@@ -1,6 +1,4 @@
 ---
-
-
 ---
 
 <!-- Global Metadata -->
@@ -16,8 +14,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
-	href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&display=swap"
-	rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&display=swap"
+  rel="stylesheet"
 />
 
 <!-- Scrollable a11y code helper -->
@@ -27,22 +25,22 @@
 
 <!-- This is intentionally inlined to avoid FOUC -->
 <script is:inline>
-	const theme = (() => {
-	  if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
-		return localStorage.getItem("theme");
-	  }
-	  if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-		return "dark";
-	  }
-	  return "light";
-	})();
-	if (theme === "light") {
-	  document.documentElement.classList.remove("dark");
-	} else {
-	  document.documentElement.classList.add("dark");
-	}
-	window.localStorage.setItem("theme", theme);
-  </script>
+  const theme = (() => {
+    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+      return localStorage.getItem("theme");
+    }
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      return "dark";
+    }
+    return "light";
+  })();
+  if (theme === "light") {
+    document.documentElement.classList.remove("dark");
+  } else {
+    document.documentElement.classList.add("dark");
+  }
+  window.localStorage.setItem("theme", theme);
+</script>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-TEL60V1WM9" is:inline></script>

@@ -2,34 +2,36 @@
 import Footer from "../Footer/Footer.astro";
 import MoreMenu from "../RightSidebar/MoreMenu.astro";
 import TableOfContents from "../RightSidebar/TableOfContents";
-import PasteIcon from "../../components/PageContent/PasteIcon"
+import PasteIcon from "../../components/PageContent/PasteIcon";
 const { content, githubEditUrl, currentFile } = Astro.props;
 const title = content.title;
 const headings = content.astro.headings;
 ---
 
-<div class="px-4 w-full h-full flex  flex-col items-start justify-between col-span-4 col-start-2">
-	<div class="w-full">
-	<h1 class="text-4xl font-semibold" id="overview">{title}</h1>
-	<section class="mb-2 block sm:hidden">
-		<nav class="">
-			<TableOfContents  {headings} />
-		</nav>
-	</section>
-	<article class="markdown px-6 max-w-none">
-		<slot />
-	</article>
-	<nav class="block lg:hidden">
-		<MoreMenu editHref={githubEditUrl} />
-	</nav>
-</div>
-	<div class="w-full mx-auto pt-48">
-		<Footer client:load path={currentFile} />
-	</div>
+<div
+  class="px-4 w-full h-full flex  flex-col items-start justify-between col-span-4 col-start-2"
+>
+  <div class="w-full">
+    <h1 class="text-4xl font-semibold" id="overview">{title}</h1>
+    <section class="mb-2 block sm:hidden">
+      <nav class="">
+        <TableOfContents {headings} />
+      </nav>
+    </section>
+    <article class="markdown px-6 max-w-none">
+      <slot />
+    </article>
+    <nav class="block lg:hidden">
+      <MoreMenu editHref={githubEditUrl} />
+    </nav>
+  </div>
+  <div class="w-full mx-auto pt-48">
+    <Footer client:load path={currentFile} />
+  </div>
 </div>
 
 <script>
-const copySVG = `<svg
+  const copySVG = `<svg
     stroke="currentColor"
     fill="none"
     strokeWidth={0}
@@ -45,21 +47,21 @@ const copySVG = `<svg
       strokeWidth={2}
       d="M8 5H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-1M8 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2M8 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2m0 0h2a2 2 0 0 1 2 2v3m2 4H10m0 0 3-3m-3 3 3 3"
     />
-  </svg>`
+  </svg>`;
 
-let blocks = document.querySelectorAll("pre");
-blocks.forEach(block => {
-	block.className = "relative w-full";
-	let copyButton = document.createElement("button");
-	copyButton.className = "absolute right-1 top-1 border border-slate-50 rounded-lg px-2 py-1 text-sm hover:text-slate-800 hover:bg-gray-100 focus:outline-none focus:shadow-outline text-brand-primary";
-	copyButton.innerHTML = copySVG;
-	copyButton.addEventListener("click", () => {
-
-  const pre = copyButton.parentElement;
-  let code = pre.querySelector("code");
-  let text = code.innerText;
-		navigator.clipboard.writeText(text);
-		copyButton.innerHTML = `<svg
+  let blocks = document.querySelectorAll("pre");
+  blocks.forEach((block) => {
+    block.className = "relative w-full";
+    let copyButton = document.createElement("button");
+    copyButton.className =
+      "absolute right-1 top-1 border border-slate-50 rounded-lg px-2 py-1 text-sm hover:text-slate-800 hover:bg-gray-100 focus:outline-none focus:shadow-outline text-brand-primary";
+    copyButton.innerHTML = copySVG;
+    copyButton.addEventListener("click", () => {
+      const pre = copyButton.parentElement;
+      let code = pre.querySelector("code");
+      let text = code.innerText;
+      navigator.clipboard.writeText(text);
+      copyButton.innerHTML = `<svg
     stroke="currentColor"
     fill="currentColor"
     strokeWidth={0}
@@ -78,12 +80,10 @@ blocks.forEach(block => {
       stroke="none"
     />
   </svg>`;
-	setTimeout(() => {
-		copyButton.innerHTML = copySVG;
-	}, 1000);
-	});
-	block.appendChild(copyButton);
-}
-);
-
+      setTimeout(() => {
+        copyButton.innerHTML = copySVG;
+      }, 1000);
+    });
+    block.appendChild(copyButton);
+  });
 </script>

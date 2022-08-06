@@ -13,25 +13,29 @@ const { currentPage } = Astro.props as Props;
 const lang = currentPage && getLanguageFromURL(currentPage);
 ---
 
+<header
+  class="sticky top-0 h-20 w-full flex items-center justify-center z-[11] dark:bg-dark-background shadow-md"
+>
+  <SkipToContent />
+  <nav
+    class="flex items-center justify-center sm:justify-end w-full"
+    title="Top Navigation"
+  >
+    <div class="sm:hidden pl-4 pt-2">
+      <SidebarToggle client:load />
+    </div>
+    <div
+      class="ml-12 md:ml-28 lg:ml-64 xl:ml-80 items-center justify-center sm:justify-start w-full font-extrabold dark:text-white text-black gap-1 flex"
+    >
+      <img src={"/t3-logo.png"} width={50} />
+      <h1 class="text-base">{CONFIG.SITE.title ?? "Documentation"}</h1>
+    </div>
 
-<header class="sticky top-0 h-20 w-full flex items-center justify-center z-[11] dark:bg-dark-background shadow-md">
-	<SkipToContent />
-	<nav class="flex items-center justify-center sm:justify-end w-full" title="Top Navigation">
-		<div class="sm:hidden pl-4 pt-2">
-			<SidebarToggle client:load  />
-		</div>
-		<div class="ml-12 md:ml-28 lg:ml-64 xl:ml-80 items-center justify-center sm:justify-start w-full font-extrabold dark:text-white text-black gap-1 flex">
-				<img src={'/t3-logo.png'} width={50} />
-				<h1 class="text-base">{CONFIG.SITE.title ?? "Documentation"}</h1>
-		</div>
-		
-		<!-- {KNOWN_LANGUAGE_CODES.length > 1 && <LanguageSelect lang={lang} client:idle />}
+    <!-- {KNOWN_LANGUAGE_CODES.length > 1 && <LanguageSelect lang={lang} client:idle />}
 		{CONFIG.ALGOLIA && (
 			<div class="hidden sm:block">
 				<Search client:idle />
 			</div>
 		)} -->
-	</nav>
+  </nav>
 </header>
-
-
