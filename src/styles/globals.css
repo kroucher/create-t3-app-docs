@@ -9,6 +9,9 @@
   .markdown li {
     @apply list-disc;
   }
+  .markdown ol > li {
+    @apply list-decimal;
+  }
   .markdown p {
     @apply mb-4;
   }

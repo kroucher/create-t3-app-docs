@@ -39,6 +39,11 @@ export const SIDEBAR = {
     { text: "Getting Started", link: "en/getting-started" },
     { text: "Installation", link: "en/installation" },
 
+    { text: "Configuration", header: true },
+    {
+      text: "Environment Variables",
+      link: "en/configuration/environment-variables",
+    },
     { text: "NextJS", header: true },
     { text: "NextJS Docs", link: "https://nextjs.org/docs", external: true },
     { text: "Why NextJS?", link: "en/nextjs/nextjs-why" },
@@ -84,5 +89,6 @@ export const SIDEBAR = {
     },
     { text: "Why NextAuth.js?", link: "en/nextauth/nextauth-why" },
     { text: "Usage", link: "en/nextauth/nextauth-usage" },
+    { text: "User ID", link: "en/nextauth/nextauth-user-id" },
   ],
 };

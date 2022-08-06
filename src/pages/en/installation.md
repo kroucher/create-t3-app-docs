@@ -1,6 +1,6 @@
 ---
-title: Getting Started
-description: Getting started with create-t3-app
+title: Installation
+description: Installing create-t3-app
 layout: ../../layouts/MainLayout.astro
 ---
 
