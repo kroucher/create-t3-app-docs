@@ -24,7 +24,7 @@ const TableOfContents = ({ headings }: { headings: MarkdownHeading[] }) => {
   return (
     <div className="w-full">
       <h2 className="text-lg my-4">On this page</h2>
-      <ul className="border-l-2 border-slate-800 dark:border-slate-50 my-1">
+      <ul className="border-l-2 border-slate-800 dark:border-brand-primary my-1">
         <li
           className={`pl-4 depth-2 ${
             activeId === "overview" ? "active" : ""

@@ -12,7 +12,6 @@
     "@algolia/client-search": "^4.13.1",
     "@docsearch/css": "^3.1.0",
     "@docsearch/react": "^3.1.0",
-    "@nanostores/preact": "^0.2.1",
     "@types/react": "^17.0.45"
   },
   "devDependencies": {

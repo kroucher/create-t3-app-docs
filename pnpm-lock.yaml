@@ -7,7 +7,6 @@ specifiers:
   '@astrojs/tailwind': ^0.2.5
   '@docsearch/css': ^3.1.0
   '@docsearch/react': ^3.1.0
-  '@nanostores/preact': ^0.2.1
   '@nanostores/react': ^0.3.0
   '@tailwindcss/typography': ^0.5.4
   '@types/react': ^17.0.45
@@ -22,7 +21,6 @@ dependencies:
   '@algolia/client-search': 4.14.2
   '@docsearch/css': 3.2.0
   '@docsearch/react': 3.2.0_h2q7ltx4sqgye5xvrbnj7n2sfm
-  '@nanostores/preact': 0.2.1_25y6go2gbiid2464rodixab4ky
   '@types/react': 17.0.48
 
 devDependencies:
@@ -605,17 +603,6 @@ packages:
   /@ljharb/has-package-exports-patterns/0.0.2:
     resolution: {integrity: sha512-4/RWEeXDO6bocPONheFe6gX/oQdP/bEpv0oL4HqjPP5DCenBSt0mHgahppY49N0CpsaqffdwPq+TlX9CYOq2Dw==}
     dev: true
-
-  /@nanostores/preact/0.2.1_25y6go2gbiid2464rodixab4ky:
-    resolution: {integrity: sha512-tCT10bBrO6qtzfShQbQL10yLwpGkdRxpknFuI6drkXkFYNs0LFIHQXgTr7jShcnlbQnhOSBIPtSnCVwKd/HvFA==}
-    engines: {node: ^14.0.0 || ^16.0.0 || >=18.0.0}
-    peerDependencies:
-      nanostores: ^0.6.0
-      preact: '>=10.0.0'
-    dependencies:
-      nanostores: 0.6.0
-      preact: 10.10.0
-    dev: false
 
   /@nanostores/react/0.3.0_resngft2y545aodfc4fe35fzvu:
     resolution: {integrity: sha512-gf2vRS2kGxLzLAF20BlUeFxMtBVEHaErk2XQ1YYnTAPtuesBD2nB1ndAOOinL2mSS2zxyQ4jtW3uljvbsGNuIQ==}
@@ -2684,6 +2671,7 @@ packages:
   /nanostores/0.6.0:
     resolution: {integrity: sha512-CQpKE8wtaJAr66hbg32t0MOAeybzLywU6UsLAX18kyQL/bME+xwhjWpmrvJRBp5kueFy6hs2oHlt3HFpNP+JaA==}
     engines: {node: ^14.0.0 || ^16.0.0 || >=18.0.0}
+    dev: true
 
   /napi-build-utils/1.0.2:
     resolution: {integrity: sha512-ONmRUqK7zj7DWX0D9ADe03wbwOBZxNAfF20PlGfCWQcD3+/MakShIHrMqx9YwPTfxDdF1zLeL+RGZiR9kGMLdg==}
@@ -2965,10 +2953,6 @@ packages:
       picocolors: 1.0.0
       source-map-js: 1.0.2
     dev: true
-
-  /preact/10.10.0:
-    resolution: {integrity: sha512-fszkg1iJJjq68I4lI8ZsmBiaoQiQHbxf1lNq+72EmC/mZOsFF5zn3k1yv9QGoFgIXzgsdSKtYymLJsrJPoamjQ==}
-    dev: false
 
   /prebuild-install/7.1.1:
     resolution: {integrity: sha512-jAXscXWMcCK8GgCoHOfIr0ODh5ai8mj63L2nWrjuAgXE6tDyYGnx4/8o/rCgU+B4JSyZBKbeZqzhtwtC3ovxjw==}
