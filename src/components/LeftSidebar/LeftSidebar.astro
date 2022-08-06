@@ -40,6 +40,7 @@ const sidebarSections = SIDEBAR[langCode].reduce((col, item, i) => {
               return (
                 <li class="pl-2 pb-1 hover:underline hover:underline-offset-2 text-black dark:text-slate-50 text-base">
                   <a
+                  title={child.text}
                     href={
                       child.external
                         ? `${child.link}`

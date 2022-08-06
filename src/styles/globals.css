@@ -3,8 +3,14 @@
 @tailwind utilities;
 
 @layer base {
+  .markdown h1 {
+    @apply mt-8 mb-4 text-3xl font-extrabold;
+  }
   .markdown h2 {
-    @apply mt-8 mb-4 text-2xl font-extrabold;
+    @apply mt-8 mb-4 text-2xl font-semibold;
+  }
+  .markdown h3 {
+    @apply mt-8 mb-4 text-xl font-semibold;
   }
   .markdown li {
     @apply list-disc;
