@@ -41,7 +41,7 @@ const TableOfContents = ({ headings }: { headings: MarkdownHeading[] }) => {
   return (
     <div className="w-full">
       <h2 className="text-lg my-4 font-semibold">On this page</h2>
-      <ul className="border-l-2 border-slate-800 dark:border-brand-primary my-1">
+      <ul className="w-full border-l-2 border-slate-800 dark:border-brand-primary my-1">
         <li
           className={`pl-2 ${activeId === "overview" ? "active" : ""}`.trim()}
         >
@@ -54,7 +54,7 @@ const TableOfContents = ({ headings }: { headings: MarkdownHeading[] }) => {
             return (
               <li
                 key={i}
-                className={`list-none  ${
+                className={`w-full list-none  ${
                   activeId === heading.slug ? "font-semibold" : ""
                 }`}
               >
