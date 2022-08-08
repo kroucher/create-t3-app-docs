@@ -17,7 +17,7 @@ Create-T3-App uses [zod](https://github.com/colinhacks/zod) for environment vari
 ┣ 📜 schema.mjs
 <br></br>
 
-A `z.object` is used as a schema, with each object key representing an environment variable and value representing a `z` method for validation. Each time a new environment variable is needed, it must be added to _both_ .env[.local/.production etc] as well as `env-schema.mjs`.
+A `z.object` is used as a schema, with each object key representing an environment variable and value representing a `z` method for validation. Each time a new environment variable is needed, it must be added to _both_ .env[.local/.production etc] as well as `schema.mjs`.
 
 # Files
 
@@ -65,6 +65,40 @@ This is the file that performs the validation on server-only environment variabl
 ## client.mjs
 
 Similar to `server.mjs`, this file performs the validation on client-side environment variables (those which are prefixed with `NEXT_PUBLIC`).
+
+## Add a new environment variable
+
+To ensure your build never completes without the environment variables the project needs, you will need to add new environment variables in **two** locations:
+
+`.env`
+
+Added in the regular method of `NAME=VALUE`
+
+`schema.mjs`
+
+Added inside the `clientSchema` or `serverSchema` objects depending on if they are to be consumed client-side or in your backend, defining the type as a [zod](https://github.com/colinhacks/zod) schema.
+
+### Example
+
+_I need to add a new environment variable to my project, with a name of `POKEAPI_KEY` and a value of `1234ABCD`._
+
+`.env` file:
+
+```bash
+# ... any other variables that are already here
+POKEAPI_KEY=1234ABCD
+```
+
+`schema.mjs` file:
+
+```typescript
+export const serverSchema = z.object({
+  // ... any other variables that are already here
+  POKEAPI_KEY: z.string(),
+});
+```
+
+Now, schema validation will occur at runtime and build time to ensure the `POKEAPI_KEY` is present in my environment variables.
 
 ## Type-safe Environment Variables
 

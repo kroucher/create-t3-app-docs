@@ -39,4 +39,7 @@
   .markdown p > img {
     @apply text-sm mt-8;
   }
+  /* .ais-Highlight-highlighted em {
+    @apply bg-yellow-100! text-3xl! font-bold!;
+  } */
 }

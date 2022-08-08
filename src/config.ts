@@ -1,6 +1,6 @@
 export const SITE = {
-  title: "Documentation",
-  description: "Your website description.",
+  title: "Create-T3-App-Docs",
+  description: "Create-T3-App-Docs",
   defaultLanguage: "en_US",
 };
 
@@ -27,9 +27,9 @@ export const COMMUNITY_INVITE_URL = `https://discord.gg/geZHcscA`;
 // Uncomment this to enable site search.
 // See "Algolia" section of the README for more information.
 export const ALGOLIA = {
-  indexName: "XXXXXXXXXX",
-  appId: "XXXXXXXXXX",
-  apiKey: "XXXXXXXXXX",
+  indexName: "create-t3-app-docs",
+  appId: "PJ3MAGIP67",
+  apiKey: "13e6240ca28719353e85cb0df18e849b",
 };
 
 export const SIDEBAR = {
