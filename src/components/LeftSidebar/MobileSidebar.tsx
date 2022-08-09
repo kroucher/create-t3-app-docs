@@ -2,6 +2,7 @@ import { SIDEBAR } from "../../config";
 import { getLanguageFromURL } from "../../languages";
 import { useStore } from "@nanostores/react";
 import { sidebarState } from "../../store/Sidebar";
+import ThemeToggle from "../RightSidebar/ThemeToggleButton";
 
 const MobileSidebar = ({
   currentPage,
@@ -37,10 +38,11 @@ const MobileSidebar = ({
           aria-labelledby="grid-left"
         >
           <ul className="pl-6">
+            <ThemeToggle />
             {sidebarSections.map((section, i) => (
               <li key={i}>
                 <div>
-                  <h2 className="p-1 mb-2 font-bold  text-black dark:text-slate-50 text-xl ">
+                  <h2 className="p-1 mb-2 mt-0 font-bold not-prose text-black dark:text-slate-50 text-xl ">
                     {section.text}
                   </h2>
                   <ul>

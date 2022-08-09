@@ -21,37 +21,3 @@ When Prisma is selected during installation, by default, it will be configured t
 When NextAuth.js is selected in addition to Prisma during installation, the `schema.prisma` file is setup with the necessary models required to use Prisma as an adaptor for NextAuth.js.
 
 You can find more information about these models [here](https://next-auth.js.org/adapters/prisma).
-
-## Examples
-
-### Railway
-
-<span class="text-xs">Credit to acjwebdev</span>
-
-**Provision a PostgreSQL Database with Railway**
-
-1. Open `schema.prisma` and update the `datasource` to the PostgreSQL provider. In addition to the current models in the schema, add a `Post` model with an `id`, `title`, `body`, and `createdAt` time stamp.
-
-```prisma
-// prisma/schema.prisma
-
-generator client {
-    provider = "prisma-client-js"
-}
-
-datasource db {
-    provider = "postgresql"
-    url      = env("DATABASE_URL")
-}
-
-model Post {
-  id        Int      @id @default(autoincrement())
-  title     String
-  body      String
-  createdAt DateTime @default(now())
-}
-```
-
-**Install and Configure Railway CLI**
-
-### Planetscale

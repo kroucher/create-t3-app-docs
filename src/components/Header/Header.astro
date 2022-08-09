@@ -26,7 +26,7 @@ const lang = currentPage && getLanguageFromURL(currentPage);
       <SidebarToggle client:load />
     </div>
     <div
-      class="ml-12 md:ml-28 lg:ml-64 xl:ml-80 items-center justify-center sm:justify-start w-full font-extrabold dark:text-white text-black gap-1 flex"
+      class="mx-auto sm:ml-28 md:ml-28 lg:ml-64 xl:ml-80 items-center justify-center sm:justify-start w-full font-extrabold dark:text-white text-black gap-1 flex"
     >
       <img src={"/t3-logo.png"} width={50} />
       <h1 class="text-base">{CONFIG.SITE.title ?? "Documentation"}</h1>
