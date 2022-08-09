@@ -30,6 +30,8 @@ This is the file that contains the Zod schemas, and by default, contains two exp
 Specify your server-side environment variables schema here.
 
 ```typescript
+// src/env/schema.mjs
+
 export const serverSchema = z.object({
   // FOO: z.string(),
 });
@@ -41,6 +43,8 @@ Specify your client-side environment variables schema here.
 To expose them to the client, prefix them with `NEXT_PUBLIC_`.
 
 ```typescript
+// src/env/schema.mjs
+
 export const clientSchema = z.object({
   // NEXT_PUBLIC_BAR: z.string(),
 });
@@ -53,6 +57,8 @@ it manually here. This is because Next.js evaluates this at build time,
 and only used environment variables are included in the build.
 
 ```typescript
+// src/env/schema.mjs
+
 export const clientEnv = {
   // NEXT_PUBLIC_BAR: process.env.NEXT_PUBLIC_BAR,
 };
@@ -85,6 +91,8 @@ _I need to add a new environment variable to my project, with a name of `POKEAPI
 `.env` file:
 
 ```bash
+# .env
+
 # ... any other variables that are already here
 POKEAPI_KEY=1234ABCD
 ```
@@ -92,6 +100,8 @@ POKEAPI_KEY=1234ABCD
 `schema.mjs` file:
 
 ```typescript
+// src/env/schema.mjs
+
 export const serverSchema = z.object({
   // ... any other variables that are already here
   POKEAPI_KEY: z.string(),

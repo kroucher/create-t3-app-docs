@@ -36,6 +36,7 @@ export const SIDEBAR = {
   en: [
     { text: "Create-T3-App", header: true },
     { text: "Introduction", link: "en/introduction" },
+    { text: "Why?", link: "en/why" },
     { text: "Getting Started", link: "en/getting-started" },
     { text: "Installation", link: "en/installation" },
 
@@ -46,12 +47,10 @@ export const SIDEBAR = {
     },
     { text: "NextJS", header: true },
     { text: "NextJS Docs", link: "https://nextjs.org/docs", external: true },
-    { text: "Why NextJS?", link: "en/nextjs/nextjs-why" },
     { text: "Usage", link: "en/nextjs/nextjs-usage" },
 
     { text: "tRPC", header: true },
     { text: "tRPC Docs", link: "https://trpc.io/docs", external: true },
-    { text: "Why tRPC?", link: "en/trpc/trpc-why" },
     { text: "Usage", link: "en/trpc/trpc-usage" },
 
     { text: "TailwindCSS", header: true },
@@ -60,7 +59,6 @@ export const SIDEBAR = {
       link: "https://tailwindcss.com/docs/utility-first",
       external: true,
     },
-    { text: "Why TailwindCSS?", link: "en/tailwind/tailwind-why" },
     { text: "Usage", link: "en/tailwind/tailwind-usage" },
 
     { text: "TypeScript", header: true },
@@ -69,7 +67,6 @@ export const SIDEBAR = {
       link: "https://www.typescriptlang.org/docs/",
       external: true,
     },
-    { text: "Why Typescript?", link: "en/typescript/typescript-why" },
     { text: "Usage", link: "en/typescript/typescript-usage" },
 
     { text: "Prisma", header: true },
@@ -78,7 +75,6 @@ export const SIDEBAR = {
       link: "https://www.prisma.io/docs/",
       external: true,
     },
-    { text: "Why Prisma?", link: "en/prisma/prisma-why" },
     { text: "Usage", link: "en/prisma/prisma-usage" },
 
     { text: "NextAuth.js", header: true },
@@ -87,7 +83,6 @@ export const SIDEBAR = {
       link: "https://next-auth.js.org/getting-started/introduction",
       external: true,
     },
-    { text: "Why NextAuth.js?", link: "en/nextauth/nextauth-why" },
     { text: "Usage", link: "en/nextauth/nextauth-usage" },
     { text: "User ID", link: "en/nextauth/nextauth-user-id" },
   ],
