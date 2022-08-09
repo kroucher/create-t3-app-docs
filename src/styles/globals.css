@@ -108,3 +108,24 @@
     box-shadow: inset 0px 0px 0px 30px #7ac142;
   }
 }
+
+.anim-1 {
+  animation: anim-1-keyframes 1s ease-in-out forwards;
+  animation-duration: 500ms;
+}
+.anim-2 {
+  animation: anim-1-keyframes 1s ease-in-out forwards;
+  animation-duration: 600ms;
+}
+
+@keyframes anim-1-keyframes {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
