@@ -60,12 +60,17 @@ let prevPageLink = prevPage?.link?.replace(/^\//, "");
 let nextPageLink = nextPage?.link?.replace(/^\//, "");
 // skip external docs links
 if (nextPageLink && nextPageLink.startsWith("https://")) {
-  nextPage = sidebarSections[nextCategory].children[1];
-  nextPageLink = nextPage?.link.split("/").pop()
+  nextPage = sidebarSections[nextCategory]?.children?.[1];
+  if (nextPage) {
+    nextPageLink = nextPage?.link.split("/").pop()
+  }
+  
 }
 if (prevPageLink && prevPageLink.startsWith("https://")) {
-  prevPage = sidebarSections[prevCategory].children.pop();
+  prevPage = sidebarSections[prevCategory]?.children?.pop();
+  if (prevPage){
   prevPageLink = prevPage?.link.split("/").pop()
+  }
 }
 console.log(thisCategory, prevCategory)
 ---
@@ -118,7 +123,7 @@ console.log(thisCategory, prevCategory)
         )}
         {nextPageLink && (
         <a href={`/${nextPage?.link}`} class="dark:text-brand-primary text-slate-800 flex flex-col border border-slate-800 dark:border-brand-primary px-2 sm:px-4 py-1 rounded-lg w-fit hover:bg-brand-primary hover:text-slate-800 hover:dark:text-slate-800 sm:min-w-[150px]">
-          {thisCategoryObject.children.length - 1 <= thisPage ? (
+          {thisCategoryObject?.children.length - 1 <= thisPage ? (
             <div class="flex items-center justify-start ">
             <span class="text-xs sm:text-sm font-medium">{nextCategoryObject.text}</span>
           </div>
