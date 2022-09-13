@@ -50,7 +50,7 @@ export const SIDEBAR = {
     { text: "Usage", link: "en/nextjs/nextjs-usage" },
 
     { text: "tRPC", header: true },
-    { text: "tRPC Docs", link: "https://trpc.io/docs", external: true },
+    { text: "tRPC Docs", link: "https://trpc.io/docs/v9", external: true },
     { text: "Usage", link: "en/trpc/trpc-usage" },
 
     { text: "TailwindCSS", header: true },
